@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import Post from './Post'
 import './App.css';
 
-function App() {
-  return (
+
+class App extends Component {
+
+  state = {
+    data: {}
+  }
+
+  fetchPosts = () => {
+    fetch("https://images-api.nasa.gov/search?media_type=image&year_start=2019&year_end=2020")
+    .then(resp => resp.json())
+    .then( data => this.setState({data: data["collection"]["items"]}))
+  }
+
+  renderPosts = () => {
+    this.state.data.map(post => <Post imageUrl={post["links"][0]["href"]} photographer={post["data"]["photographer"]} title={post["data"]["title"]}></Post>  )
+  }
+
+ 
+  componentDidMount(){
+    this.fetchPosts()
+  }
+
+ handleButton = () => {
+  //  this.getImages()
+   console.log(this.state.data["collection"]["items"])
+ }
+
+  render(){
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='header'>
+        Spacestagram
+      </h1>
+      <button onClick={this.handleButton}>
+        CLICK ME
+      </button>
     </div>
-  );
+    )
+  }
 }
 
 export default App;
