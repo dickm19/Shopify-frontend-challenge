@@ -20,7 +20,7 @@ class App extends Component {
       
       
       return this.state.data.map(post => {
-        return <Post imageUrl={post["links"][0]["href"]} title={post["data"][0]["title"]} description={post["data"][0]["description"]} dateCreated={post["data"][0]["date_created"]} key={post["data"][0].nasa_id}></Post>
+        return <Post imageUrl={post["links"][0]["href"]} title={post["data"][0]["title"]} description={post["data"][0]["description"]} dateCreated={post["data"][0]["date_created"]} likes={0} key={post["data"][0].nasa_id}></Post>
      } )
     }
   }
@@ -30,9 +30,6 @@ class App extends Component {
     this.fetchPosts()
   }
 
-  handleClick = () => {
-    console.log(this.state.data)
-  }
 
   render(){
     return (
@@ -40,7 +37,7 @@ class App extends Component {
       <h1 className='header'>
         Spacestagram
       </h1>
-      <button onClick={this.handleClick}>CLICK ME</button>
+      
       {this.renderPosts()}
     </div>
     )
