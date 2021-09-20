@@ -6,17 +6,23 @@ import './App.css';
 class App extends Component {
 
   state = {
-    data: {}
+    data: []
   }
 
   fetchPosts = () => {
-    fetch("https://images-api.nasa.gov/search?media_type=image&year_start=2019&year_end=2020")
+    fetch("https://images-api.nasa.gov/search?media_type=image&year_start=2015&year_end=2021&keywords=galaxy")
     .then(resp => resp.json())
     .then( data => this.setState({data: data["collection"]["items"]}))
   }
 
   renderPosts = () => {
-    this.state.data.map(post => <Post imageUrl={post["links"][0]["href"]} photographer={post["data"]["photographer"]} title={post["data"]["title"]}></Post>  )
+    if (this.state.data.count !== 0){
+      
+      
+      return this.state.data.map(post => {
+        return <Post imageUrl={post["links"][0]["href"]} title={post["data"][0]["title"]} description={post["data"][0]["description"]} dateCreated={post["data"][0]["date_created"]} key={post["data"][0].nasa_id}></Post>
+     } )
+    }
   }
 
  
@@ -24,10 +30,9 @@ class App extends Component {
     this.fetchPosts()
   }
 
- handleButton = () => {
-  //  this.getImages()
-   console.log(this.state.data["collection"]["items"])
- }
+  handleClick = () => {
+    console.log(this.state.data)
+  }
 
   render(){
     return (
@@ -35,9 +40,8 @@ class App extends Component {
       <h1 className='header'>
         Spacestagram
       </h1>
-      <button onClick={this.handleButton}>
-        CLICK ME
-      </button>
+      <button onClick={this.handleClick}>CLICK ME</button>
+      {this.renderPosts()}
     </div>
     )
   }
