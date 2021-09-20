@@ -39,6 +39,7 @@ class App extends Component {
       </h1>
       
       {this.renderPosts()}
+      
     </div>
     )
   }

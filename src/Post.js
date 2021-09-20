@@ -30,7 +30,7 @@ export default class Post extends Component{
                 <h3>{this.props.title}</h3>
                 <p>{this.props.description}</p>
                 <p>{this.props.dateCreated}</p>
-                <button onClick={this.handleLike}>🤎 {this.state.likes}</button>
+                <button onClick={this.handleLike}>{this.state.clicked ? "💗" : "♡"} {this.state.likes}</button>
             </div>
         )
     }
