@@ -52,11 +52,14 @@ export default class Post extends Component{
                             <img className="heart" onClick={this.handleLike} src={this.state.clicked ? "https://i.ibb.co/ncrr1M3/Pik-Png-com-undertale-heart-png-790472.png" : "https://i.ibb.co/9gVkfmd/Pik-Png-com-pixel-heart-png-971526.png"} alt='heart'></img>
                             <p>{this.state.likes}</p>
                         </div>
-                        <CopyToClipboard text={ (window.location.href.includes(`/${this.props.id}`)) ? `${window.location.href}` : `${window.location.href}${this.props.id}`  } className="share-button">
-                            <img onClick={this.handleShare} className="share" onCopy={() => this.setState({copied: true})} src={"https://thumbs.gfycat.com/NauticalImmediateAdeliepenguin-max-1mb.gif"} alt="share button"></img>
-                        </CopyToClipboard>
-                            <p>Share</p>
-                            {this.state.shared ?  "Copied to clipboard" : null}
+                        <div className="share">
+                            <CopyToClipboard text={ (window.location.href.includes(`/${this.props.id}`)) ? `${window.location.href}` : `${window.location.href}${this.props.id}`  } className="share-button">
+                                <img onClick={this.handleShare} onCopy={() => this.setState({copied: true})} src={"https://thumbs.gfycat.com/NauticalImmediateAdeliepenguin-max-1mb.gif"} alt="share button"></img>
+                            </CopyToClipboard>
+                                <p>Share</p>
+                                {this.state.shared ?  "Copied to clipboard" : null}
+
+                        </div>
                     </div>
 
                 </div>

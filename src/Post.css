@@ -1,9 +1,11 @@
-.heart{
+.heart, .share-button{
     height: 5vh;
     
 }
+
+
 .post{
-    width: 50vw;
+    width: 80vw;
     padding: 5vw;
     padding-bottom: 0;
     margin-bottom: 5vh;
@@ -20,27 +22,12 @@
     transform: translate(-2%, -2%)
     
 }
-.like{
-    /* display: inline-block; */
-    /* float: right; */
-}
+
 
 .title{
     font-family: 'Common Pixel', sans-serif;
-                                                
 }
-
 
 .description{
     font-size: 125%;
-}
-
-.share-button{
-    height: 5vh;
-    /* float: right; */
-    /* display: inline-block; */
-}
-
-.buttons{
-    /* display: inline-block; */
 }
