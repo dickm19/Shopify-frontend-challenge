@@ -4,13 +4,28 @@
 }
 .post{
     width: 50vw;
+    padding: 5vw;
+    padding-bottom: 0;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    border: 2px solid;
+    filter: drop-shadow(30px 10px 4px #4444dd);
 }
 
 .post .galaxy{
     width: 50vw;
 }
 
+.like{
+    display: inline;
+}
+
 .title{
     font-family: 'Common Pixel', sans-serif;
                                                 
+}
+
+
+.description{
+    font-size: 125%;
 }

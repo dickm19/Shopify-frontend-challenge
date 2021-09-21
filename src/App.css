@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  background-color: rgba(45, 34, 114, 0.694);
 }
 .App{
   display: inline-block;
@@ -8,5 +9,5 @@ body {
 
 .header{
   font-family: 'Common Pixel', sans-serif;
-                                                
+  filter: drop-shadow(30px 10px 4px #4444dd);
 }
