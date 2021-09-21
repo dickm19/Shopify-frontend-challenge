@@ -27,7 +27,7 @@ export default class Post extends Component{
             <div className='post'>
                 <img className='galaxy' src={this.props.imageUrl} alt={this.props.title}></img>
                 <br></br>
-                <h3>{this.props.title}</h3>
+                <h3 className='title'>{this.props.title}</h3>
                 <p>{this.props.description}</p>
                 <p>{this.props.dateCreated}</p>
                 <div className="like-button">

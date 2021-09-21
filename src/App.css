@@ -3,4 +3,10 @@ body {
 }
 .App{
   display: inline-block;
+  font-family: 'Play', sans-serif;
+}
+
+.header{
+  font-family: 'Common Pixel', sans-serif;
+                                                
 }
