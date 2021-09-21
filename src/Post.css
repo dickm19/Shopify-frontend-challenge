@@ -4,11 +4,18 @@
 
 .like-button{
     float: left;
+    width: 5vw;
+    
 }
 
 .like-button:hover, .share-button:hover{
-    transform: translate(-2%, -2%)
+    transform: translate(-3%, -3%)
 
+}
+
+.message{
+    height: 5vh;
+    width: 5vw;
 }
 
 .share{
@@ -32,6 +39,7 @@
     margin-top: 5vh;
     border: 2px solid;
     filter: drop-shadow(30px 10px 4px #4444dd);
+    background-color:#3c29823f;
     
 }
 
@@ -39,7 +47,7 @@
     width: 70vw;
 }
 .post .galaxy:hover{
-    transform: translate(-2%, -2%)
+    transform: translate(-1%, -1%)
     
 }
 

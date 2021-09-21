@@ -57,7 +57,10 @@ export default class Post extends Component{
                                 <img onClick={this.handleShare} onCopy={() => this.setState({copied: true})} src={"https://thumbs.gfycat.com/NauticalImmediateAdeliepenguin-max-1mb.gif"} alt="share button"></img>
                             </CopyToClipboard>
                                 <p>Share</p>
-                                {this.state.shared ?  "Copied to clipboard" : null}
+                                <div className="message">
+                                    {this.state.shared ?  <p>Copied to clipboard</p> : null}
+
+                                </div>
 
                         </div>
                         <div className="clearfix"></div>
