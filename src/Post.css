@@ -1,10 +1,14 @@
 .heart, .share-button{
     height: 5vh;
-    
 }
 
 .like-button{
     float: left;
+}
+
+.like-button:hover, .share-button:hover{
+    transform: translate(-2%, -2%)
+
 }
 
 .share{
