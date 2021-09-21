@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import './Post.css'
@@ -40,7 +39,6 @@ export default class Post extends Component{
 
     render(){
         return(
-            <BrowserRouter>
                 <div className='post'>
                     <img onClick={this.handleImageClick} className='galaxy' src={this.props.imageUrl} alt={this.props.title}></img>
 
@@ -62,7 +60,6 @@ export default class Post extends Component{
                     </div>
 
                 </div>
-            </BrowserRouter>
         )
     }
 }
