@@ -16,7 +16,7 @@
 }
 
 .post .galaxy{
-    width: 50vw;
+    width: 80vw;
 }
 .post .galaxy:hover{
     transform: translate(-2%, -2%)
