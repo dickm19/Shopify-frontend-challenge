@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './Post.css'
 
 export default class Post extends Component{
 
@@ -30,7 +30,10 @@ export default class Post extends Component{
                 <h3>{this.props.title}</h3>
                 <p>{this.props.description}</p>
                 <p>{this.props.dateCreated}</p>
-                <button onClick={this.handleLike}>{this.state.clicked ? "💗" : "♡"} {this.state.likes}</button>
+                <div className="like-button">
+                    <img className="heart" onClick={this.handleLike} src={this.state.clicked ? "https://i.ibb.co/ncrr1M3/Pik-Png-com-undertale-heart-png-790472.png" : "https://i.ibb.co/9gVkfmd/Pik-Png-com-pixel-heart-png-971526.png"} alt='heart'></img>
+                    <p>{this.state.likes}</p>
+                </div>
             </div>
         )
     }
