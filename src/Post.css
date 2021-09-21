@@ -15,7 +15,10 @@
 .post .galaxy{
     width: 50vw;
 }
-
+.post .galaxy:hover{
+    transform: translate(-2%, -2%)
+    
+}
 .like{
     display: inline;
 }
