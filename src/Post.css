@@ -3,6 +3,22 @@
     
 }
 
+.like-button{
+    float: left;
+}
+
+.share{
+    float: right;
+}
+.clearfix{
+    clear: both;
+}
+
+.buttons{
+    width: 20vw;
+    margin-left: 25vw;
+}
+
 
 .post{
     width: 70vw;

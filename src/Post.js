@@ -60,6 +60,7 @@ export default class Post extends Component{
                                 {this.state.shared ?  "Copied to clipboard" : null}
 
                         </div>
+                        <div className="clearfix"></div>
                     </div>
 
                 </div>
