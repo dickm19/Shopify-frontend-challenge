@@ -24,8 +24,8 @@ export default class Post extends Component{
 
     render(){
         return(
-            <div>
-                <img src={this.props.imageUrl} alt={this.props.title}></img>
+            <div className='post'>
+                <img className='galaxy' src={this.props.imageUrl} alt={this.props.title}></img>
                 <br></br>
                 <h3>{this.props.title}</h3>
                 <p>{this.props.description}</p>
