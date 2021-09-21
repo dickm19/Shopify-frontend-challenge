@@ -5,7 +5,7 @@
 
 
 .post{
-    width: 80vw;
+    width: 70vw;
     padding: 5vw;
     padding-bottom: 0;
     margin-bottom: 5vh;
@@ -16,7 +16,7 @@
 }
 
 .post .galaxy{
-    width: 80vw;
+    width: 70vw;
 }
 .post .galaxy:hover{
     transform: translate(-2%, -2%)
