@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+// import dateFormat from 'dateformat';
 import { BrowserRouter } from 'react-router-dom';
 
 import Post from './Post'
@@ -10,21 +12,21 @@ class App extends Component {
 
   state = {
     data: [],
-    numberedData: []
+
   }
 
   fetchPosts = () => {
     fetch("https://images-api.nasa.gov/search?media_type=image&year_start=2015&year_end=2021&keywords=galaxy")
     .then(resp => resp.json())
-    .then( data => this.setState({data: data["collection"]["items"]}))
+    .then( data => this.setState({data: data["collection"]["items"], displayed: data["collection"]["items"]}))
   }
 
   renderPosts = () => {
-    if (this.state.numberedData){
+    if (this.state.data){
       
       let count = 0
       return this.numberPosts().map(post => {
-        let newPost = <Post imageUrl={post.imageUrl} title={post.title} description={post.description} dateCreated={post.dateCreated} likes={0} id={count} key={count}></Post>
+        let newPost = <Post handleImageClick={this.handleImageClick} imageUrl={post.imageUrl} title={post.title} description={post.description} dateCreated={post.dateCreated} likes={0} id={count} key={count}></Post>
         count++
         return newPost
      } )
@@ -33,6 +35,8 @@ class App extends Component {
   }
 
   numberPosts = () => {
+    if (this.state.data){
+
       let count = 0
       return this.state.data.map(post => {
 
@@ -48,16 +52,21 @@ class App extends Component {
         count++
         return newPost
       })
+    }
       // this.setState({numberedData: numberedData })
 
   }
 
   renderRoutes = () => {
-    if (this.state.numberedData){
-      return this.state.numberedData.map(post => {
-        return <Route exact path={`/${post.id}`} component={<Post imageUrl={post.imageUrl} title={post.title} description={post.description} dateCreated={post.dateCreated} likes={0} id={post.id} key={post.id}></Post>}></Route>
+    if (this.numberPosts()){
+      return this.numberPosts().map(post => {
+        return <Route exact path={`/${post.id}`} render={() => <Post handleImageClick={this.handleImageClick} imageUrl={post.imageUrl} title={post.title} description={post.description} dateCreated={post.dateCreated} likes={0} id={post.id} key={post.id}></Post>}></Route>
       })
     }
+  }
+  
+  handleImageClick = () => {
+    window.location.reload()
   }
 
  
@@ -69,17 +78,19 @@ class App extends Component {
     return (
       <BrowserRouter>
           <div className="App">
-            <h1 className='header'>
-              Spacestagram
-            </h1>
-          <Route
-                exact
-                path="/"
-                render={this.renderPosts}
+            <Link to="/" className='header'>
+              <h1 >
+                Spacestagram
+              </h1>
+            </Link>
+            <Route
+                  exact
+                  path="/"
+                  render={this.renderPosts}
             />
-            
+          
+            {this.renderRoutes()} 
           </div>
-          {this.renderRoutes()}
       </BrowserRouter>
     )
   }
